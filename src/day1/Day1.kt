@@ -9,13 +9,13 @@ class Day1 {
         @JvmStatic
         fun main(args: Array<String>) {
             checkAssertions()
-            val fuelList: List<String> = read(Days.DAY1)
-            println(fuelList.calculate { fuel(it) })
-            println(fuelList.calculate { totalFuel(it) })
+            val masses: List<String> = read(Days.DAY1)
+            println(masses.calculate { fuel(it) })
+            println(masses.calculate { totalFuel(it) })
         }
 
-        private fun List<String>.calculate(calculate: (Int) -> Int) = this.stream()
-            .mapToInt { calculate(it.toInt()) }
+        private fun List<String>.calculate(calculation: (Int) -> Int) = this.stream()
+            .mapToInt { calculation(it.toInt()) }
             .sum()
 
         private fun fuel(mass: Int): Int = Math.floorDiv(mass, 3) - 2
