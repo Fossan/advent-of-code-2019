@@ -5,9 +5,9 @@ import java.nio.file.Paths
 
 class FileReader {
     companion object {
-        fun read(day: Days): List<String> = File(resolvePath(day)).bufferedReader().readLines()
+        fun read(day: Days): List<String> = File(day.pathToInput()).bufferedReader().readLines()
 
-        private fun resolvePath(day: Days): String =
-            Paths.get("").toAbsolutePath().toString() + "/src/${day.name}/${day.inputName}"
+        private fun Days.pathToInput(): String =
+            Paths.get("").toAbsolutePath().toString() + "/src/${this.name}/${this.inputName}"
     }
 }
